@@ -6,8 +6,8 @@ import axios from "axios";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [username, setUsername] = useState("CleverProgrammers");
-  const [user, setUser] = useState("CleverProgrammers");
+  const [username, setUsername] = useState("menendezluis");
+  const [user, setUser] = useState("menendezluis");
   const [githubProfile, setGithubProfile] = useState(null);
   const [showRepositories, setShowRepositories] = useState(false);
   const [repositories, setRepositories] = useState([]);
