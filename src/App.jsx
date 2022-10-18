@@ -30,10 +30,14 @@ function App() {
   };
 
   const getRepos = () => {
-    axios.get(`https://api.github.com/users/${user}/repos`).then((res) => {
-      setShowRepositories(true);
-      setRepositories(res.data);
-    });
+    if (!showRepositories) {
+      axios.get(`https://api.github.com/users/${user}/repos`).then((res) => {
+        setShowRepositories(true);
+        setRepositories(res.data);
+      });
+    } else {
+      setShowRepositories(false);
+    }
   };
 
   useEffect(() => {
@@ -105,7 +109,7 @@ function App() {
             @{githubProfile?.login}
           </span>
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-            Location: {githubProfile?.location || "Earth"}
+            {githubProfile?.location || "Earth"}
           </span>
         </div>
 
